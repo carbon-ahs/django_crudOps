@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title%}
+    {{ header }} | {{ app_name }}
+{% endblock title %}
+
+{% block content %}
+<h1> {{ header }} </h1>
+{% if all_product %}
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Selling Price(BDT)</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        {% for product in all_product %}
+        <tbody>
+            <tr>
+            <th scope="row">{{product.id}}</th>
+            <td>{{product.product_name}}</td>
+            <td>{{product.selling_price}}</td>
+            <td><a class="nav-link" href="{% url 'update' product.id %}">Update</a></td>
+            <td><a class="nav-link" href="{% url 'delete' product.id %}">Delete</a></td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+{% endif %}
+{% endblock content %}

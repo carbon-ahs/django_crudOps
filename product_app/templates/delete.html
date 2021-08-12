@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title%}
+    {{ header }} | {{ app_name }}
+{% endblock title %}
+
+{% block content %}
+<h1> {{ header }} </h1>
+Are you sure to delete '{{product}}'?
+
+    <form action='{% url 'delete' product.id %}' class="d-flex" method="POST">
+        {% csrf_token %}
+        {% comment %} <input class="form-control me-2" type="search" placeholder="Item" aria-label="Search" name = 'form.product_code'> {% endcomment %}
+        <a class="nav-link" href="{% url 'product' %}">Cancel</a> 
+        <button class="btn btn-outline-secondary" type="submit">Yes!</button> </br>
+    </form>
+{% endblock content %}

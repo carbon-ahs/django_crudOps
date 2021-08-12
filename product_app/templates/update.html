@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title%}
+    {{ header }} | {{ app_name }}
+{% endblock title %}
+
+{% block content %}
+<h1> {{ header }} </h1>
+    
+    <form class="d-flex" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% comment %} <input class="form-control me-2" type="search" placeholder="Item" aria-label="Search" name = 'form.product_code'> {% endcomment %}
+        <button class="btn btn-outline-secondary" type="submit">Update</button>
+    </form>
+{% endblock content %}

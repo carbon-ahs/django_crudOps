@@ -6,6 +6,7 @@
 
 {% block content %}
 <h1> Home </h1>
+    <p> Add New Product Here: </p </br>
     <form action='{% url 'home' %}' class="d-flex" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
